@@ -1,0 +1,2 @@
+# autoPublishDraft
+auto publish
