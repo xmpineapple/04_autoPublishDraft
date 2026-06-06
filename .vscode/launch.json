@@ -10,7 +10,7 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP":"D:/traePractice/04_AIWeChatauto_prac/main.py",
+                "FLASK_APP":"D:/traePractice/04_autoPublishDraft/main.py",
                 "FLASK_DEBUG":"1"
             },
             "args": [
