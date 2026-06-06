@@ -1,3 +1,5 @@
+Scripts/
+Lib/
 logs/
-Lib/site-packages/
 README.md
+pyvenv.cfg
