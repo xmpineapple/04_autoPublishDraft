@@ -1,5 +1,9 @@
+# Scripts/ Lib/ pyvenv.cfg 与虚拟环境有关上传
 Scripts/
+pyvenv.cfg
 Lib/
+config.json
 logs/
 README.md
-pyvenv.cfg
+
+
