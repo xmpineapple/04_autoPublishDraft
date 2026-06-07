@@ -2,8 +2,12 @@
 Scripts/
 pyvenv.cfg
 Lib/
+
 config.json
 logs/
+cache/
+
 README.md
+
 
 
