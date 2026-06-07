@@ -4,6 +4,7 @@ pyvenv.cfg
 Lib/
 
 config.json
+history.json
 logs/
 cache/
 
