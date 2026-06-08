@@ -95,8 +95,8 @@ class ConfigService:
     
     def _validate_config(self, config_data: Dict[str, Any]) -> bool:
         """验证配置数据"""
-        required_fields = ['wechat_appid', 'wechat_appsecret', 'gemini_api_key']
-        
+        # required_fields = ['wechat_appid', 'wechat_appsecret', 'gemini_api_key']
+        required_fields = ['wechat_appid', 'wechat_appsecret']
         for field in required_fields:
             if field in config_data:
                 value = config_data[field]

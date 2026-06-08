@@ -239,8 +239,15 @@ class ImageService:
     def _generate_with_dashscope_v2(self, title: str, description: str = "", dashscope_params: dict = None) -> Optional[str]:
         """新版：使用阿里云百炼SDK生成图片，支持正/反向提示词、图片比例、采样步数等参数"""
         try:
+            from services.config_service import ConfigService
             import dashscope
             from dashscope import ImageSynthesis
+            config_service = ConfigService()
+            dashscope_config = config_service.get_dashscope_config()
+            api_key = dashscope_config.get('api_key', '')
+            if not api_key:
+                logger.error("阿里云百炼API密钥未配置")
+                return None
             from http import HTTPStatus
             from urllib.parse import urlparse, unquote
             from pathlib import PurePosixPath
@@ -264,7 +271,7 @@ class ImageService:
             seed = dashscope_params.get('seed')
             guidance_scale = dashscope_params.get('guidance_scale')
             output_dir = self.cache_folder
-            api_key = os.environ.get("DASHSCOPE_API_KEY")
+            # api_key = os.environ.get("DASHSCOPE_API_KEY")
             if not api_key:
                 logger.error("未设置 DASHSCOPE_API_KEY 环境变量")
                 return None
