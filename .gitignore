@@ -2,7 +2,7 @@
 Scripts/
 pyvenv.cfg
 Lib/
-
+# config.json history.json logs/ cache/ 与项目运行有关
 config.json
 history.json
 logs/
@@ -10,6 +10,7 @@ cache/
 
 README.md
 项目功能说明书.md
+user_manual/
 
 
 

@@ -1127,14 +1127,17 @@ class HistoryManager {
                     return;
                 }
                 
-                // 先保存草稿，拿到media_id
-                let media_id = '';
-                const saveRes = await ApiClient.post('/api/save-draft', { article });
-                if (saveRes.success && saveRes.data && saveRes.data.media_id) {
-                    media_id = saveRes.data.media_id;
-                } else {
-                    Utils.showToast('保存草稿失败: ' + (saveRes.message || '未知错误'), 'error', 5000);
-                    return;
+                // 检查是否已有media_id，避免重复保存草稿
+                let media_id = item.media_id;
+                if (!media_id) {
+                    // 先保存草稿，拿到media_id
+                    const saveRes = await ApiClient.post('/api/save-draft', { article });
+                    if (saveRes.success && saveRes.data && saveRes.data.media_id) {
+                        media_id = saveRes.data.media_id;
+                    } else {
+                        Utils.showToast('保存草稿失败: ' + (saveRes.message || '未知错误'), 'error', 5000);
+                        return;
+                    }
                 }
                 
                 // 调用定时发布接口
